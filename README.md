@@ -17,8 +17,7 @@
 ---
 
 ## ✨ Overview
-**TWISE OS** هو بورتفوليو تفاعلي ثلاثي الأبعاد يدمج بين الفن والتكنولوجيا، مبني باستخدام تقنيات حديثة لتقديم تجربة مستخدم فريدة ومستقبلية.
-
+**Hamza Elgarn** is a three-dimensional interactive portfolio that combines art and technology, built using modern technologies to deliver a unique and futuristic user experience.
 > 🎓 **Education:** Collège de Paris — Creative Design & Digital Arts.
 
 ---

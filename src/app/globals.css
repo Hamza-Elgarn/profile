@@ -1,0 +1,1267 @@
+@import "tailwindcss";
+
+:root {
+  --neon-blue: #00f3ff;
+  --neon-purple: #bc13fe;
+  --neon-orange: #ff5722;
+  --electric-blue: #2979ff;
+  --deep-space: #050510;
+  --panel-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* Ensure dark background always */
+html {
+  background-color: #050510 !important;
+  background: #050510 !important;
+}
+
+/* Base styles */
+body {
+  background-color: #050510 !important;
+  background: #050510 !important;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Prevent white flash */
+#__next,
+main,
+.app-container {
+  background-color: #050510;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-space);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-orange);
+}
+
+/* Glass Panel */
+.glass-panel {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+}
+
+/* Glass Card */
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.2);
+}
+
+/* Neon Text */
+.neon-text {
+  text-shadow: 0 0 10px rgba(255, 87, 34, 0.5),
+    0 0 20px rgba(255, 87, 34, 0.3);
+}
+
+/* Headings */
+.heading-xl {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .heading-xl {
+    font-size: 4.5rem;
+  }
+}
+
+.heading-lg {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+@media (min-width: 768px) {
+  .heading-lg {
+    font-size: 3rem;
+  }
+}
+
+.heading-md {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .heading-md {
+    font-size: 1.875rem;
+  }
+}
+
+/* Subtitle */
+.subtitle {
+  color: var(--neon-orange);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* 3D Card Effects */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Hero Title - Bold & Dramatic */
+.hero-title {
+  font-size: clamp(4rem, 15vw, 10rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-shadow:
+    0 0 40px rgba(255, 255, 255, 0.3),
+    0 0 80px rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   HERO GRADIENT ORBS - Neon Glowing Circles
+   ======================================== */
+.hero-gradient {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-gradient.orange {
+  background: radial-gradient(circle, var(--neon-orange) 0%, transparent 70%);
+  top: 20%;
+  right: -10%;
+}
+
+.hero-gradient.blue {
+  background: radial-gradient(circle, var(--neon-blue) 0%, transparent 70%);
+  top: 30%;
+  left: -10%;
+}
+
+/* Pulsing Glow Animation */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 6s ease-in-out infinite;
+}
+
+/* ========================================
+   PERSONAL TERMINAL SECTION STYLES
+   ======================================== */
+
+/* Terminal Container */
+.terminal-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  box-shadow:
+    0 0 60px rgba(255, 87, 34, 0.1),
+    inset 0 0 60px rgba(0, 0, 0, 0.3);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.terminal-content {
+  padding: 2rem;
+}
+
+/* Data Lines */
+.data-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.data-label {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--neon-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.data-value {
+  color: white;
+  font-weight: 500;
+}
+
+/* Skill Badge */
+.skill-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 87, 34, 0.1);
+  border: 1px solid rgba(255, 87, 34, 0.3);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--neon-orange);
+  transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+  background: rgba(255, 87, 34, 0.2);
+  border-color: var(--neon-orange);
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Skill Popup */
+.skill-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 200px;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 87, 34, 0.5);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.skill-popup.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.skill-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: rgba(255, 87, 34, 0.5);
+}
+
+/* Social Card */
+.social-card {
+  display: block;
+  width: 120px;
+  height: 140px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.social-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.social-card:hover .social-card-inner {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--glow-color, var(--neon-orange));
+  transform: translateZ(20px) rotateX(5deg);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px var(--glow-color, var(--neon-orange));
+}
+
+/* Social Glow Effect */
+.social-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--glow-color, var(--neon-orange)), transparent, var(--glow-color, var(--neon-orange)));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  animation: border-glow 3s linear infinite;
+}
+
+.social-card:hover .social-glow {
+  opacity: 0.6;
+}
+
+@keyframes border-glow {
+
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(30deg);
+  }
+}
+
+/* Education Badge */
+.education-badge {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 87, 34, 0.1) 0%, rgba(0, 243, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 87, 34, 0.3);
+  border-radius: 1rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.badge-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, var(--neon-orange), transparent, var(--neon-blue), transparent);
+  animation: badge-rotate 6s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes badge-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.badge-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ========================================
+   LOADING SCREEN STYLES
+   ======================================== */
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  overflow: hidden;
+  /* GPU acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.loading-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 87, 34, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 87, 34, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.5;
+}
+
+.loading-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+/* Logo Styling */
+.loading-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 10px rgba(255, 87, 34, 0.5));
+}
+
+.logo-frame {
+  animation: logo-pulse 2s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* 3D Cube Loader Container */
+.loading-cube {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Scanline Effect */
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--neon-orange), transparent);
+  box-shadow: 0 0 20px var(--neon-orange), 0 0 40px var(--neon-orange);
+  pointer-events: none;
+}
+
+/* Status Messages */
+.loading-messages {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+  color: var(--neon-orange);
+  text-align: center;
+  min-height: 1.5rem;
+}
+
+.message-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.message-prefix {
+  color: var(--neon-blue);
+  font-weight: bold;
+}
+
+.message-text {
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.05em;
+}
+
+.cursor {
+  color: var(--neon-orange);
+  font-weight: bold;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+.cursor.invisible {
+  opacity: 0;
+}
+
+@keyframes cursor-blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Progress Bar */
+.loading-progress {
+  position: relative;
+  width: 300px;
+  max-width: 80vw;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--neon-orange), var(--neon-blue));
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--neon-orange);
+}
+
+.progress-glow {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 87, 34, 0.3), transparent);
+  animation: progress-shimmer 2s linear infinite;
+}
+
+@keyframes progress-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Corner Brackets */
+.loading-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.corner-bracket {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-color: rgba(255, 87, 34, 0.3);
+  border-style: solid;
+}
+
+.corner-bracket.top-left {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+
+.corner-bracket.top-right {
+  top: 0;
+  right: 0;
+  border-width: 2px 2px 0 0;
+}
+
+.corner-bracket.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 2px 2px;
+}
+
+.corner-bracket.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0;
+}
+
+/* Floating Particles */
+.loading-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--neon-orange);
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+  }
+
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   SOUND TOGGLE BUTTON STYLES
+   ======================================== */
+
+.sound-toggle {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sound-toggle:hover {
+  background: rgba(255, 87, 34, 0.1);
+  border-color: rgba(255, 87, 34, 0.3);
+  transform: scale(1.1);
+}
+
+.sound-toggle-glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--neon-orange), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.sound-toggle-glow.active {
+  opacity: 0.4;
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+.sound-toggle-icon {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.sound-toggle:hover .sound-toggle-icon {
+  color: var(--neon-orange);
+}
+
+.sound-toggle-tooltip {
+  position: absolute;
+  left: 100%;
+  margin-left: 12px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 87, 34, 0.3);
+  border-radius: 6px;
+  font-size: 12px;
+  color: white;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.sound-toggle-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Sound wave animation */
+.sound-waves {
+  position: absolute;
+  right: -8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.wave {
+  width: 3px;
+  height: 8px;
+  background: var(--neon-orange);
+  border-radius: 2px;
+  animation: wave-bounce 0.6s ease-in-out infinite;
+}
+
+@keyframes wave-bounce {
+
+  0%,
+  100% {
+    transform: scaleY(0.5);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   ENHANCED SOUND TOGGLE - Wave Bars
+   ======================================== */
+
+/* Animated ring that glows when sound is on */
+.sound-toggle-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--deep-space), var(--deep-space)) padding-box,
+    linear-gradient(135deg, var(--neon-orange), var(--neon-blue)) border-box;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.sound-toggle-ring.active {
+  opacity: 1;
+  animation: ring-rotate 3s linear infinite;
+}
+
+@keyframes ring-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sound-toggle-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sound Wave Bars Container */
+.sound-wave-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 20px;
+}
+
+/* Individual Sound Bars */
+.sound-bar {
+  width: 3px;
+  height: 4px;
+  background: linear-gradient(to top, var(--neon-orange), var(--neon-blue));
+  border-radius: 2px;
+  animation: sound-wave 1s ease-in-out infinite;
+}
+
+@keyframes sound-wave {
+
+  0%,
+  100% {
+    height: 4px;
+    opacity: 0.5;
+  }
+
+  50% {
+    height: 18px;
+    opacity: 1;
+  }
+}
+
+/* Tooltip Label */
+.sound-toggle-label {
+  position: absolute;
+  left: calc(100% + 12px);
+  padding: 8px 14px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 87, 34, 0.3);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.sound-toggle-label::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right-color: rgba(255, 87, 34, 0.3);
+}
+
+.sound-toggle-label.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* ========================================
+   CUSTOM ANIMATED CURSOR STYLES
+   ======================================== */
+
+/* Main cursor dot - glowing sphere */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  background: radial-gradient(circle, #fff 0%, var(--neon-orange) 50%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transition: width 0.3s, height 0.3s, margin 0.3s, opacity 0.3s;
+  box-shadow:
+    0 0 10px var(--neon-orange),
+    0 0 20px var(--neon-orange),
+    0 0 30px rgba(255, 87, 34, 0.5);
+}
+
+.cursor-dot.hovering {
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  opacity: 0.5;
+}
+
+/* Cursor ring - appears on hover */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  margin-left: -30px;
+  margin-top: -30px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transform-origin: center;
+  transition: opacity 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.cursor-ring.active {
+  opacity: 1;
+  border-color: var(--neon-orange);
+  box-shadow:
+    0 0 20px rgba(255, 87, 34, 0.3),
+    inset 0 0 20px rgba(255, 87, 34, 0.1);
+  animation: ring-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+
+  0%,
+  100% {
+    transform: translate(var(--x, 0), var(--y, 0)) scale(1);
+    border-color: var(--neon-orange);
+  }
+
+  50% {
+    transform: translate(var(--x, 0), var(--y, 0)) scale(1.1);
+    border-color: var(--neon-blue);
+  }
+}
+
+/* Click indicator - ripple effect */
+.click-indicator {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  margin-left: -30px;
+  margin-top: -30px;
+  pointer-events: none;
+  z-index: 10001;
+}
+
+.click-ripple {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--neon-orange);
+  border-radius: 50%;
+  animation: ripple-expand 0.6s ease-out forwards;
+}
+
+.click-ripple.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.click-ripple.delay-2 {
+  animation-delay: 0.2s;
+}
+
+@keyframes ripple-expand {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+    border-width: 4px;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+/* Hide cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+
+  .cursor-dot,
+  .cursor-ring,
+  .click-indicator {
+    display: none;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE STYLES
+   ======================================== */
+
+/* Extra Small Devices (phones, 320px - 479px) */
+@media (max-width: 479px) {
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .heading-xl {
+    font-size: 2rem;
+  }
+
+  .heading-lg {
+    font-size: 1.5rem;
+  }
+
+  .heading-md {
+    font-size: 1.25rem;
+  }
+
+  .subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+
+  /* Hero gradient orbs - smaller on mobile */
+  .hero-gradient {
+    width: 60vw;
+    height: 60vw;
+    filter: blur(50px);
+    opacity: 0.4;
+  }
+
+  /* Glass cards padding */
+  .glass-card {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  /* Sound toggle - smaller on mobile */
+  .sound-toggle {
+    width: 40px;
+    height: 40px;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .sound-toggle-label {
+    display: none;
+  }
+
+  /* Loading screen adjustments */
+  .loading-content {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .loading-logo svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .loading-messages {
+    font-size: 0.75rem;
+  }
+
+  /* Terminal section */
+  .terminal-container {
+    padding: 1rem;
+  }
+
+  /* Skill badges */
+  .skill-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Small Devices (landscape phones, 480px - 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .hero-title {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+
+  .hero-gradient {
+    width: 50vw;
+    height: 50vw;
+    filter: blur(60px);
+    opacity: 0.5;
+  }
+
+  .sound-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Medium Devices (tablets, 768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-gradient {
+    width: 45vw;
+    height: 45vw;
+    filter: blur(70px);
+  }
+}
+
+/* Mobile Navigation Adjustments */
+@media (max-width: 767px) {
+
+  /* Hide side navigation dots on mobile */
+  .side-nav {
+    display: none;
+  }
+
+  /* Full-width sections */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Project cards - full width on mobile */
+  .card-3d {
+    min-height: 300px;
+  }
+
+  /* Contact form adjustments */
+  form {
+    padding: 1.5rem !important;
+  }
+
+  /* Reduce orb sizes on mobile for performance */
+  .neon-orb {
+    width: 30vw !important;
+    height: 30vw !important;
+    filter: blur(40px) !important;
+  }
+
+  /* Scroll indicator adjustments */
+  .scroll-indicator {
+    bottom: 2rem;
+  }
+
+  /* Social cards - stack vertically */
+  .social-cards-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-card {
+    width: 100%;
+  }
+}
+
+/* Touch-Friendly Adjustments */
+@media (hover: none) {
+
+  /* Larger touch targets */
+  button,
+  a,
+  .interactive {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects that don't work on touch */
+  .glass-card:hover {
+    transform: none;
+  }
+
+  /* Disable 3D tilt on touch devices */
+  .card-3d {
+    transform-style: flat;
+  }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  .loading-screen {
+    overflow-y: auto;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .loading-screen {
+    animation: none !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+
+  .glass-card,
+  .glass-panel {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-color: white;
+  }
+
+  .neon-text {
+    text-shadow: none;
+  }
+}
+
+/* ========================================
+   HIDE NEXT.JS DEV INDICATOR
+   ======================================== */
+nextjs-portal,
+[data-nextjs-toast],
+[data-nextjs-dialog],
+[data-nextjs-dialog-overlay] {
+  display: none !important;
+}
+
+/* ========================================
+   MOBILE SOUND TOGGLE POSITION
+   ======================================== */
+@media (max-width: 767px) {
+  .sound-toggle {
+    bottom: 5rem;
+    /* Above bottom navigation */
+    left: 1rem;
+    width: 44px;
+    height: 44px;
+    z-index: 60;
+  }
+}

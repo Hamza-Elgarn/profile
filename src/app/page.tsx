@@ -19,8 +19,16 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Only show loading screen once per session
-    if (sessionStorage.getItem('hasLoaded')) {
+    // Check if the page is being reloaded
+    const navEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
+    const isReload = navEntries.length > 0 && navEntries[0].type === 'reload';
+
+    if (isReload) {
+      // Clear flag on explicit refresh to show loading screen again
+      sessionStorage.removeItem('hasLoaded');
+      setIsLoading(true);
+    } else if (sessionStorage.getItem('hasLoaded')) {
+      // Skip loading screen if returning from a project page
       setIsLoading(false);
     }
   }, []);

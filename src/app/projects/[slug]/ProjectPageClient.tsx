@@ -88,7 +88,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 {/* Back button */}
                 <Link
                     href="/#projects"
-                    className="group mb-12 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/70 transition-all duration-300 hover:border-[var(--neon-orange)]/30 hover:bg-[var(--neon-orange)]/10 hover:text-[var(--neon-orange)]"
+                    className="group mb-12 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/70 transition-all duration-300 hover:border-[var(--primary-blue)]/30 hover:bg-[var(--primary-blue)]/10 hover:text-[var(--primary-blue-light)]"
                 >
                     <svg className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -100,7 +100,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 <div ref={headerRef} className="mb-16" style={{ opacity: 0 }}>
                     {/* Category badge */}
                     <div className="mb-6 inline-block">
-                        <span className="rounded-full border border-[var(--neon-orange)]/30 bg-[var(--neon-orange)]/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-[var(--neon-orange)]">
+                        <span className="rounded-full border border-[var(--primary-blue)]/30 bg-[var(--primary-blue)]/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-[var(--primary-blue-light)]">
                             {project.category}
                         </span>
                     </div>
@@ -108,7 +108,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                     <h1 className="heading-xl mb-6">
                         {project.title.split('-').map((word, i) => (
                             <span key={i}>
-                                {i > 0 && <span className="text-[var(--neon-orange)]">-</span>}
+                                {i > 0 && <span className="text-[var(--primary-blue-light)]">-</span>}
                                 {word}
                             </span>
                         ))}
@@ -143,8 +143,8 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                         <ul className="space-y-4">
                             {project.features.map((feature, index) => (
                                 <li key={index} className="flex items-start gap-3">
-                                    <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[var(--neon-orange)]/20">
-                                        <svg className="h-3 w-3 text-[var(--neon-orange)]" fill="currentColor" viewBox="0 0 20 20">
+                                    <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[var(--primary-blue)]/20">
+                                        <svg className="h-3 w-3 text-[var(--primary-blue-light)]" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                         </svg>
                                     </div>
@@ -158,7 +158,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 {/* Gallery */}
                 <div ref={galleryRef}>
                     <h2 className="heading-md mb-8 text-white/90">
-                        Project <span className="text-[var(--neon-orange)]">Gallery</span>
+                        Project <span className="text-[var(--primary-blue-light)]">Gallery</span>
                     </h2>
                     <ImageGallery images={project.images} projectTitle={project.title} />
                 </div>

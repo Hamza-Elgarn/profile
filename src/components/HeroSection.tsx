@@ -1,161 +1,210 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import Image from 'next/image';
+import Spline from '@splinetool/react-spline';
 
-// Dynamically import 3D components (no SSR)
-const Scene = dynamic(() => import('./3d/Scene'), { ssr: false });
-const HeroModel = dynamic(() => import('./3d/HeroModel'), { ssr: false });
-const ParticleField = dynamic(() => import('./3d/ParticleField'), { ssr: false });
+// Stats data
+const stats = [
+    { value: '1000+', label: 'Coding Hours', position: 'top-left' },
+    { value: '10+', label: 'Projects Built', position: 'top-right' },
+    { value: '5+', label: 'Technologies', position: 'bottom-left' },
+    { value: '2+', label: 'Years Experience', position: 'bottom-right' },
+];
 
 export default function HeroSection() {
-    const titleRef = useRef<HTMLHeadingElement>(null);
-    const firstNameRef = useRef<HTMLSpanElement>(null);
-    const lastNameRef = useRef<HTMLSpanElement>(null);
-    const subtitleRef = useRef<HTMLParagraphElement>(null);
+    const sectionRef = useRef<HTMLElement>(null);
+    const textRef = useRef<HTMLDivElement>(null);
+    const photoRef = useRef<HTMLDivElement>(null);
+    const statsRef = useRef<(HTMLDivElement | null)[]>([]);
     const scrollIndicatorRef = useRef<HTMLDivElement>(null);
-    const orbContainerRef = useRef<HTMLDivElement>(null);
+    
+    // Performance optimization: Disable heavy 3D scene on mobile
+    const [isMobile, setIsMobile] = useState<boolean>(true); // Default true to prevent hydration mismatch and heavy load
 
     useEffect(() => {
-        // Master timeline for coordinated animations
-        const tl = gsap.timeline({ delay: 0.3 });
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        // Initial check
+        checkMobile();
+        
+        // Listen for resizes
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
-        // 1. First, pulse the orbs outward (burst effect)
-        tl.fromTo(
-            orbContainerRef.current,
-            { scale: 0, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 1.5, ease: 'elastic.out(1, 0.5)' }
-        )
-            // 2. First name bursts in with scale
-            .fromTo(
-                firstNameRef.current,
-                { scale: 0.5, opacity: 0, y: 50 },
-                { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: 'back.out(1.7)' },
-                '-=1' // Overlap with orb animation
-            )
-            // 3. Last name slides up and fades in
-            .fromTo(
-                lastNameRef.current,
-                { scale: 0.5, opacity: 0, y: 50 },
-                { scale: 1, opacity: 1, y: 0, duration: 0.8, ease: 'back.out(1.7)' },
-                '-=0.5'
-            )
-            // 4. Subtitle fades in
-            .fromTo(
-                subtitleRef.current,
-                { y: 30, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-                '-=0.3'
-            )
-            // 5. Scroll indicator appears
-            .fromTo(
-                scrollIndicatorRef.current,
-                { y: 20, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
-                '-=0.2'
+    useEffect(() => {
+        const tl = gsap.timeline({ delay: 0.5 });
+
+        // Text content animation
+        if (textRef.current) {
+            const children = textRef.current.children;
+            tl.fromTo(
+                children,
+                { y: 60, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
             );
+        }
 
-        // Continuous floating animation for scroll indicator
-        gsap.to(scrollIndicatorRef.current, {
-            y: 10,
-            repeat: -1,
-            yoyo: true,
-            duration: 1.5,
-            ease: 'power1.inOut'
+        // Photo animation
+        if (photoRef.current) {
+            tl.fromTo(
+                photoRef.current,
+                { scale: 0.8, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 1, ease: 'power3.out' },
+                '-=0.6'
+            );
+        }
+
+        // Stats cards animation
+        statsRef.current.forEach((stat, i) => {
+            if (stat) {
+                tl.fromTo(
+                    stat,
+                    { scale: 0, opacity: 0 },
+                    { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.7)' },
+                    `-=${0.3}`
+                );
+            }
         });
 
-        // Subtle breathing animation for orbs
-        gsap.to(orbContainerRef.current, {
-            scale: 1.05,
-            repeat: -1,
-            yoyo: true,
-            duration: 4,
-            ease: 'sine.inOut'
+        // Scroll indicator
+        if (scrollIndicatorRef.current) {
+            tl.fromTo(
+                scrollIndicatorRef.current,
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }
+            );
+
+            // Continuous floating
+            gsap.to(scrollIndicatorRef.current, {
+                y: 10,
+                repeat: -1,
+                yoyo: true,
+                duration: 1.5,
+                ease: 'power1.inOut'
+            });
+        }
+
+        // Subtle floating animation for stats
+        statsRef.current.forEach((stat, i) => {
+            if (stat) {
+                gsap.to(stat, {
+                    y: i % 2 === 0 ? -8 : 8,
+                    repeat: -1,
+                    yoyo: true,
+                    duration: 2.5 + i * 0.5,
+                    ease: 'sine.inOut',
+                    delay: i * 0.3
+                });
+            }
         });
     }, []);
 
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
-        <section className="relative min-h-screen w-full overflow-hidden bg-[#050510]">
-            {/* 3D Canvas Layer */}
-            <div className="absolute inset-0 z-0">
-                <Scene>
-                    <ParticleField />
-                    <HeroModel />
-                </Scene>
+        <section
+            ref={sectionRef}
+            className="hero-section"
+        >
+            {/* Spline 3D Scene Background (Desktop Only for Performance) */}
+            {!isMobile && (
+                <div className="absolute top-0 left-0 w-screen h-screen z-0 overflow-hidden pointer-events-auto mix-blend-screen opacity-60">
+                    <Spline 
+                        scene="https://prod.spline.design/ciJGQMHbUZz8QCej/scene.splinecode" 
+                        className="w-full h-full"
+                    />
+                </div>
+            )}
+
+            {/* Subtle gradient background effects for text readability */}
+            <div className="hero-bg-glow hero-bg-glow-blue z-0 pointer-events-none" />
+            <div className="hero-bg-glow hero-bg-glow-accent z-0 pointer-events-none" />
+
+            {/* Protective Overlay */}
+            <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-[var(--deep-space)] via-transparent to-transparent opacity-80" />
+
+            {/* Main content */}
+            <div className="hero-content relative z-10 pointer-events-none">
+                {/* Left side - Text */}
+                <div ref={textRef} className="hero-text pointer-events-none">
+                    <p className="hero-greeting" style={{ opacity: 0 }}>
+                        Hi! I&apos;m Hamza Elgarn, building
+                    </p>
+                    <h1 className="hero-headline" style={{ opacity: 0 }}>
+                        Digital<br />Experiences.
+                    </h1>
+                    <p className="hero-description" style={{ opacity: 0 }}>
+                        From prototypes to production-ready systems,<br />
+                        I turn ideas into scalable, user-focused products.
+                    </p>
+                    <div className="hero-buttons pointer-events-auto" style={{ opacity: 0 }}>
+                        <button
+                            className="hero-btn-primary"
+                            onClick={() => scrollToSection('contact')}
+                        >
+                            Let&apos;s Connect
+                        </button>
+                        <button
+                            className="hero-btn-secondary"
+                            onClick={() => scrollToSection('projects')}
+                        >
+                            See My Work
+                        </button>
+                    </div>
+                </div>
+
+                {/* Right side - Photo with floating stats */}
+                <div className="hero-visual pointer-events-none">
+                    {/* Photo container */}
+                    <div ref={photoRef} className="hero-photo-container pointer-events-none" style={{ opacity: 0 }}>
+                        {/* Blue glow ring behind photo */}
+                        <div className="hero-photo-glow pointer-events-none" />
+                        <div className="hero-photo-ring pointer-events-none" />
+                        <div className="hero-photo-wrapper pointer-events-none">
+                            <Image
+                                src="/hamza-photo.png"
+                                alt="Hamza Elgarn"
+                                width={450}
+                                height={550}
+                                className="hero-photo"
+                                priority
+                            />
+                        </div>
+                    </div>
+
+                    {/* Floating Stats Cards */}
+                    {stats.map((stat, index) => (
+                        <div
+                            key={stat.label}
+                            ref={el => { statsRef.current[index] = el; }}
+                            className={`hero-stat-card hero-stat-${stat.position}`}
+                            style={{ opacity: 0 }}
+                        >
+                            <span className="hero-stat-value">{stat.value}</span>
+                            <span className="hero-stat-label">{stat.label}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
 
-            {/* Centered Neon Orbs Container - Behind Name */}
+            {/* Scroll indicator */}
             <div
-                ref={orbContainerRef}
-                className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none"
+                ref={scrollIndicatorRef}
+                className="hero-scroll-indicator relative z-10 pointer-events-none"
                 style={{ opacity: 0 }}
             >
-                {/* Blue/Cyan Orb - Left of Center */}
-                <div
-                    className="absolute w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] rounded-full"
-                    style={{
-                        background: 'radial-gradient(circle, rgba(0, 243, 255, 0.8) 0%, rgba(0, 243, 255, 0.3) 40%, transparent 70%)',
-                        filter: 'blur(60px)',
-                        left: '20%',
-                        transform: 'translateX(-50%)'
-                    }}
-                />
-                {/* Orange Orb - Right of Center */}
-                <div
-                    className="absolute w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] rounded-full"
-                    style={{
-                        background: 'radial-gradient(circle, rgba(255, 87, 34, 0.8) 0%, rgba(255, 87, 34, 0.3) 40%, transparent 70%)',
-                        filter: 'blur(60px)',
-                        right: '20%',
-                        transform: 'translateX(50%)'
-                    }}
-                />
-            </div>
-
-            {/* Content Layer - Text on Top */}
-            <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
-                {/* Main Title - Bold & Prominent */}
-                <h1
-                    ref={titleRef}
-                    className="hero-title mb-4"
-                >
-                    <span
-                        ref={firstNameRef}
-                        className="block"
-                        style={{ opacity: 0 }}
-                    >
-                        HAMZA
-                    </span>
-                    <span
-                        ref={lastNameRef}
-                        className="block text-[var(--neon-orange)]"
-                        style={{ opacity: 0 }}
-                    >
-                        ELGARN
-                    </span>
-                </h1>
-
-                {/* Subtitle */}
-                <p
-                    ref={subtitleRef}
-                    className="subtitle mb-12"
-                    style={{ opacity: 0 }}
-                >
-                    Creative Developer • Python • C • UI/UX
-                </p>
-
-                {/* Scroll indicator */}
-                <div
-                    ref={scrollIndicatorRef}
-                    className="absolute bottom-12 flex flex-col items-center gap-3"
-                    style={{ opacity: 0 }}
-                >
-                    <span className="text-xs uppercase tracking-[0.3em] text-white/50">
-                        Scroll to explore
-                    </span>
-                    <div className="h-12 w-[1px] bg-gradient-to-b from-[var(--neon-orange)] to-transparent" />
-                </div>
+                <span className="hero-scroll-text">Scroll to explore</span>
+                <div className="hero-scroll-line" />
             </div>
         </section>
     );

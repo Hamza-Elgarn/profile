@@ -140,15 +140,15 @@ export default function HolographicForm() {
                 <div className="glass-card relative overflow-hidden p-12 text-center">
                     {/* Scanning effect */}
                     <div className="absolute inset-0 overflow-hidden">
-                        <div className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--neon-orange)] to-transparent"
+                        <div className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--primary-blue)] to-transparent"
                             style={{ animation: 'scanline 1.5s linear infinite' }} />
                     </div>
 
                     {/* Corner accents */}
-                    <div className="absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-[var(--neon-orange)]/50" />
-                    <div className="absolute right-0 top-0 h-8 w-8 border-r-2 border-t-2 border-[var(--neon-orange)]/50" />
-                    <div className="absolute bottom-0 left-0 h-8 w-8 border-b-2 border-l-2 border-[var(--neon-orange)]/50" />
-                    <div className="absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-[var(--neon-orange)]/50" />
+                    <div className="absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-[var(--primary-blue)]/50" />
+                    <div className="absolute right-0 top-0 h-8 w-8 border-r-2 border-t-2 border-[var(--primary-blue)]/50" />
+                    <div className="absolute bottom-0 left-0 h-8 w-8 border-b-2 border-l-2 border-[var(--primary-blue)]/50" />
+                    <div className="absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-[var(--primary-blue)]/50" />
 
                     {/* 3D Cube Loader */}
                     <div className="mb-6 flex justify-center">
@@ -163,7 +163,7 @@ export default function HolographicForm() {
 
                     {/* Progress bar */}
                     <div className="mx-auto mt-6 h-1 w-48 overflow-hidden rounded-full bg-white/10">
-                        <div className="h-full w-full animate-pulse rounded-full bg-gradient-to-r from-[var(--neon-orange)] to-cyan-400"
+                        <div className="h-full w-full animate-pulse rounded-full bg-gradient-to-r from-[var(--primary-blue)] to-cyan-400"
                             style={{ animation: 'progress 1.5s ease-in-out infinite' }} />
                     </div>
                 </div>
@@ -192,8 +192,8 @@ export default function HolographicForm() {
                     className="absolute inset-0 opacity-20"
                     style={{
                         backgroundImage: `
-                            linear-gradient(rgba(255, 87, 34, 0.1) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(255, 87, 34, 0.1) 1px, transparent 1px)
+                            linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px)
                         `,
                         backgroundSize: '40px 40px'
                     }}
@@ -203,7 +203,7 @@ export default function HolographicForm() {
             {/* Scanline effect */}
             <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
                 <div
-                    className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--neon-orange)]/50 to-transparent"
+                    className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--primary-blue)]/50 to-transparent"
                     style={{
                         animation: 'scanline 3s linear infinite'
                     }}
@@ -216,13 +216,13 @@ export default function HolographicForm() {
                 className="glass-card relative overflow-hidden p-8 md:p-12"
             >
                 {/* Corner accents */}
-                <div className="absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-[var(--neon-orange)]/50" />
-                <div className="absolute right-0 top-0 h-8 w-8 border-r-2 border-t-2 border-[var(--neon-orange)]/50" />
-                <div className="absolute bottom-0 left-0 h-8 w-8 border-b-2 border-l-2 border-[var(--neon-orange)]/50" />
-                <div className="absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-[var(--neon-orange)]/50" />
+                <div className="absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-[var(--primary-blue)]/50" />
+                <div className="absolute right-0 top-0 h-8 w-8 border-r-2 border-t-2 border-[var(--primary-blue)]/50" />
+                <div className="absolute bottom-0 left-0 h-8 w-8 border-b-2 border-l-2 border-[var(--primary-blue)]/50" />
+                <div className="absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-[var(--primary-blue)]/50" />
 
                 <h3 className="mb-8 text-center text-2xl font-bold text-white">
-                    <span className="text-[var(--neon-orange)]">Initialize</span> Connection
+                    <span className="text-[var(--primary-blue-light)]">Initialize</span> Connection
                 </h3>
 
                 {/* Name field */}
@@ -269,10 +269,10 @@ export default function HolographicForm() {
                 {/* Submit button */}
                 <button
                     type="submit"
-                    className="group relative mt-8 w-full overflow-hidden rounded-xl border border-[var(--neon-orange)]/50 bg-[var(--neon-orange)]/10 px-8 py-4 font-semibold text-white transition-all duration-300 hover:border-[var(--neon-orange)] hover:bg-[var(--neon-orange)]/20"
+                    className="group relative mt-8 w-full overflow-hidden rounded-xl border border-[var(--primary-blue)]/50 bg-[var(--primary-blue)]/10 px-8 py-4 font-semibold text-white transition-all duration-300 hover:border-[var(--primary-blue)] hover:bg-[var(--primary-blue)]/20"
                 >
                     {/* Button glow */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--neon-orange)]/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--primary-blue)]/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                     <span className="relative z-10 flex items-center justify-center gap-3">
                         <span>Send Transmission</span>
@@ -339,14 +339,14 @@ function HolographicInput({ label, name, type, value, onChange, placeholder, foc
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
-            <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-[var(--neon-orange)]">
+            <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-[var(--primary-blue-light)]">
                 {label}
             </label>
             <div className="relative">
                 {/* Cursor glow effect */}
                 <div
                     ref={glowRef}
-                    className="pointer-events-none absolute top-0 h-full w-24 -translate-x-1/2 bg-gradient-to-r from-transparent via-[var(--neon-orange)]/20 to-transparent opacity-0 transition-opacity duration-300"
+                    className="pointer-events-none absolute top-0 h-full w-24 -translate-x-1/2 bg-gradient-to-r from-transparent via-[var(--primary-blue)]/20 to-transparent opacity-0 transition-opacity duration-300"
                 />
 
                 <input
@@ -359,14 +359,14 @@ function HolographicInput({ label, name, type, value, onChange, placeholder, foc
                     placeholder={placeholder}
                     required={required}
                     className={`w-full rounded-lg border bg-black/50 px-4 py-3 text-white placeholder-white/30 outline-none transition-all duration-300 ${focused || value
-                        ? 'border-[var(--neon-orange)] shadow-[0_0_15px_rgba(255,87,34,0.3)]'
+                        ? 'border-[var(--primary-blue)] shadow-[0_0_15px_rgba(37,99,235,0.3)]'
                         : 'border-white/10 hover:border-white/20'
                         }`}
                 />
 
                 {/* Active indicator line */}
                 <div
-                    className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[var(--neon-orange)] to-[var(--electric-blue)] transition-all duration-500 ${focused ? 'w-full' : 'w-0'
+                    className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[var(--primary-blue)] to-[var(--electric-blue)] transition-all duration-500 ${focused ? 'w-full' : 'w-0'
                         }`}
                 />
             </div>
@@ -412,14 +412,14 @@ function HolographicTextarea({ label, name, value, onChange, placeholder, focuse
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
-            <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-[var(--neon-orange)]">
+            <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-[var(--primary-blue-light)]">
                 {label}
             </label>
             <div className="relative overflow-hidden rounded-lg">
                 {/* Cursor glow effect */}
                 <div
                     ref={glowRef}
-                    className="pointer-events-none absolute h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--neon-orange)]/20 blur-xl opacity-0 transition-opacity duration-300"
+                    className="pointer-events-none absolute h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--primary-blue)]/20 blur-xl opacity-0 transition-opacity duration-300"
                 />
 
                 <textarea
@@ -432,14 +432,14 @@ function HolographicTextarea({ label, name, value, onChange, placeholder, focuse
                     required={required}
                     rows={5}
                     className={`w-full resize-none rounded-lg border bg-black/50 px-4 py-3 text-white placeholder-white/30 outline-none transition-all duration-300 ${focused || value
-                        ? 'border-[var(--neon-orange)] shadow-[0_0_15px_rgba(255,87,34,0.3)]'
+                        ? 'border-[var(--primary-blue)] shadow-[0_0_15px_rgba(37,99,235,0.3)]'
                         : 'border-white/10 hover:border-white/20'
                         }`}
                 />
 
                 {/* Active indicator line */}
                 <div
-                    className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[var(--neon-orange)] to-[var(--electric-blue)] transition-all duration-500 ${focused ? 'w-full' : 'w-0'
+                    className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[var(--primary-blue)] to-[var(--electric-blue)] transition-all duration-500 ${focused ? 'w-full' : 'w-0'
                         }`}
                 />
             </div>

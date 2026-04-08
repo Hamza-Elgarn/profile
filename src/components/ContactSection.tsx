@@ -96,7 +96,7 @@ export default function ContactSection() {
                     <p className="subtitle mb-4">Establish Connection</p>
                     <h2 className="heading-lg mb-6">
                         Get in{' '}
-                        <span className="text-[var(--neon-orange)]">Touch</span>
+                        <span className="text-[var(--primary-blue-light)]">Touch</span>
                     </h2>
                     <p className="mx-auto max-w-xl text-white/50">
                         Ready to collaborate on your next project? Send a transmission through the holographic interface below.
@@ -119,7 +119,7 @@ function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/60 transition-all duration-300 hover:border-[var(--neon-orange)]/50 hover:bg-[var(--neon-orange)]/10 hover:text-[var(--neon-orange)] hover:shadow-[0_0_20px_rgba(255,87,34,0.3)]"
+            className="group relative flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/60 transition-all duration-300 hover:border-[var(--primary-blue)]/50 hover:bg-[var(--primary-blue)]/10 hover:text-[var(--primary-blue-light)] hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]"
             title={label}
         >
             {icon}

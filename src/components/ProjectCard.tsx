@@ -199,7 +199,7 @@ export default function ProjectCard({
                     {/* Cursor Glow */}
                     <div
                         ref={glowRef}
-                        className="pointer-events-none absolute h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--neon-orange)] opacity-0 blur-[60px] transition-opacity duration-300 group-hover:opacity-25"
+                        className="pointer-events-none absolute h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--primary-blue)] opacity-0 blur-[60px] transition-opacity duration-300 group-hover:opacity-25"
                         style={{ top: 0, left: 0 }}
                     />
 
@@ -210,7 +210,7 @@ export default function ProjectCard({
                         <div>
                             {/* Category & Badge */}
                             <div className="mb-4 flex items-center justify-between">
-                                <span className="inline-block rounded-full border border-[var(--neon-orange)]/30 bg-[var(--neon-orange)]/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-[var(--neon-orange)] backdrop-blur-md">
+                                <span className="inline-block rounded-full border border-[var(--primary-blue)]/30 bg-[var(--primary-blue)]/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-[var(--primary-blue-light)] backdrop-blur-md">
                                     {category}
                                 </span>
                                 {/* Slideshow Indicator (Visible on Hover) */}
@@ -218,7 +218,7 @@ export default function ProjectCard({
                                     {images.slice(0, 4).map((_, i) => (
                                         <div
                                             key={i}
-                                            className={`h-1 w-4 rounded-full transition-colors ${i === currentImageIndex ? 'bg-[var(--neon-orange)]' : 'bg-white/20'
+                                            className={`h-1 w-4 rounded-full transition-colors ${i === currentImageIndex ? 'bg-[var(--primary-blue)]' : 'bg-white/20'
                                                 }`}
                                         />
                                     ))}
@@ -253,7 +253,7 @@ export default function ProjectCard({
                         </div>
 
                         {/* 'Explore Project' Action */}
-                        <div className={`mt-6 flex items-center gap-2 text-sm font-medium text-[var(--neon-orange)] transition-all duration-300 ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                        <div className={`mt-6 flex items-center gap-2 text-sm font-medium text-[var(--primary-blue-light)] transition-all duration-300 ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                             <span>Explore Project</span>
                             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

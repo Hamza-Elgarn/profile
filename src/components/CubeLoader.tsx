@@ -59,14 +59,14 @@ const colorShift = keyframes`
 
 const glowPulse = keyframes`
   0%, 100% {
-    box-shadow: 0 0 10px rgba(255, 87, 34, 0.5),
-                0 0 20px rgba(255, 87, 34, 0.3),
-                0 0 30px rgba(0, 243, 255, 0.2);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5),
+                0 0 20px rgba(37, 99, 235, 0.3),
+                0 0 30px rgba(6, 182, 212, 0.2);
   }
   50% {
-    box-shadow: 0 0 20px rgba(255, 87, 34, 0.8),
-                0 0 40px rgba(255, 87, 34, 0.5),
-                0 0 60px rgba(0, 243, 255, 0.4);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.8),
+                0 0 40px rgba(37, 99, 235, 0.5),
+                0 0 60px rgba(6, 182, 212, 0.4);
   }
 `;
 
@@ -102,19 +102,19 @@ const StyledWrapper = styled.div<{ $size: number }>`
       #1a1a2e 0%,
       #16213e 10%,
       #0f3460 25%,
-      #ff5722 50%,
-      #ff7043 65%,
-      #00f3ff 85%,
-      #00bcd4 100%
+      #2563eb 50%,
+      #3b82f6 65%,
+      #06b6d4 85%,
+      #0891b2 100%
     );
-    border: 1px solid rgba(255, 87, 34, 0.3);
+    border: 1px solid rgba(37, 99, 235, 0.3);
   }
 
   .cube-top {
     position: absolute;
     width: ${props => props.$size}px;
     height: ${props => props.$size}px;
-    background: linear-gradient(135deg, #1a1a2e 0%, #ff5722 50%, #00f3ff 100%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #2563eb 50%, #06b6d4 100%);
     transform: rotateX(90deg) translateZ(${props => props.$size / 2}px);
     transform-style: preserve-3d;
     animation: ${glowPulse} 2s ease-in-out infinite;
@@ -125,7 +125,7 @@ const StyledWrapper = styled.div<{ $size: number }>`
     position: absolute;
     width: ${props => props.$size}px;
     height: ${props => props.$size}px;
-    background: linear-gradient(135deg, #ff5722 0%, #00f3ff 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
     transform: translateZ(-${props => props.$size * 1.2}px);
     filter: blur(15px);
     opacity: 0.6;
@@ -138,7 +138,7 @@ const StyledWrapper = styled.div<{ $size: number }>`
   }
 
   &:hover .cube-top {
-    background: linear-gradient(135deg, #00f3ff 0%, #ff5722 50%, #1a1a2e 100%);
+    background: linear-gradient(135deg, #06b6d4 0%, #2563eb 50%, #1a1a2e 100%);
   }
 `;
 

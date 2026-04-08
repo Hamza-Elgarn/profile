@@ -58,7 +58,7 @@ export default function AboutSection() {
                         <p className="subtitle mb-4">About Me</p>
                         <h2 className="heading-lg mb-8">
                             Building the{' '}
-                            <span className="text-[var(--neon-orange)]">Future</span>
+                            <span className="text-[var(--primary-blue-light)]">Future</span>
                         </h2>
                         <div className="space-y-6 text-lg leading-relaxed text-white/70">
                             <p>
@@ -85,11 +85,11 @@ export default function AboutSection() {
                             <div key={skill.name} className="space-y-2">
                                 <div className="flex justify-between text-sm">
                                     <span className="font-medium text-white">{skill.name}</span>
-                                    <span className="text-[var(--neon-orange)]">{skill.level}%</span>
+                                    <span className="text-[var(--primary-blue-light)]">{skill.level}%</span>
                                 </div>
                                 <div className="h-2 overflow-hidden rounded-full bg-white/10">
                                     <div
-                                        className="skill-bar-fill h-full origin-left rounded-full bg-gradient-to-r from-[var(--neon-orange)] to-[var(--electric-blue)]"
+                                        className="skill-bar-fill h-full origin-left rounded-full bg-gradient-to-r from-[var(--primary-blue)] to-[var(--electric-blue)]"
                                         style={{
                                             width: `${skill.level}%`,
                                             transform: 'scaleX(0)'

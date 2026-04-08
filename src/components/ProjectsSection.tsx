@@ -65,14 +65,14 @@ export default function ProjectsSection() {
             className="relative z-10 min-h-screen w-full px-6 py-32 md:px-12 lg:px-24"
         >
             {/* Background gradient */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--neon-orange)]/5 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[var(--primary-blue)]/5 to-transparent" />
 
             {/* Section header */}
             <div className="mb-20 text-center">
                 <p className="subtitle mb-4">Selected Work</p>
                 <h2 ref={titleRef} className="heading-lg" style={{ opacity: 0 }}>
                     Featured{' '}
-                    <span className="text-[var(--neon-orange)]">Projects</span>
+                    <span className="text-[var(--primary-blue-light)]">Projects</span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-white/50">
                     Hover over project titles to preview gallery

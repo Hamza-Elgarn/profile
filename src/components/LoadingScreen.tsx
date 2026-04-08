@@ -85,7 +85,7 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
 
         tl.to(logoRef.current, { opacity: 1, scale: 1, duration: 0.6 })
             .to(scanlineRef.current, { top: '100%', opacity: 0.5, duration: 0.7, ease: 'power1.inOut' }, '-=0.3')
-            .to(logoRef.current, { filter: 'drop-shadow(0 0 25px #FF5722)', duration: 0.3, yoyo: true, repeat: 1 }, '-=0.5')
+            .to(logoRef.current, { filter: 'drop-shadow(0 0 25px #2563eb)', duration: 0.3, yoyo: true, repeat: 1 }, '-=0.5')
             .to(messagesRef.current, { opacity: 1, duration: 0.25 }, '-=0.2')
             .to(progressRef.current, { opacity: 1, duration: 0.25 });
 
@@ -156,9 +156,9 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
                                 </text>
                                 <defs>
                                     <linearGradient id="entryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#FF5722" />
-                                        <stop offset="50%" stopColor="#FF8A65" />
-                                        <stop offset="100%" stopColor="#00FFFF" />
+                                        <stop offset="0%" stopColor="#2563eb" />
+                                        <stop offset="50%" stopColor="#3b82f6" />
+                                        <stop offset="100%" stopColor="#06b6d4" />
                                     </linearGradient>
                                 </defs>
                             </svg>
@@ -212,7 +212,7 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
                     .orb-1 {
                         width: 300px;
                         height: 300px;
-                        background: radial-gradient(circle, rgba(255, 87, 34, 0.3) 0%, transparent 70%);
+                        background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%);
                         top: 10%;
                         left: -10%;
                         animation: orbFloat 8s ease-in-out infinite;
@@ -244,14 +244,14 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
                         width: 180px;
                         height: 180px;
                         border-radius: 50%;
-                        border: 2px dashed rgba(255, 87, 34, 0.3);
+                        border: 2px dashed rgba(37, 99, 235, 0.3);
                         animation: rotate 20s linear infinite;
                     }
 
                     .entry-pulse-ring {
                         position: absolute;
                         border-radius: 50%;
-                        border: 1px solid rgba(255, 87, 34, 0.4);
+                        border: 1px solid rgba(37, 99, 235, 0.4);
                     }
                     .ring-1 {
                         width: 140px;
@@ -286,13 +286,13 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
                     }
 
                     @keyframes logoGlow {
-                        0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 87, 34, 0.5)); }
-                        50% { filter: drop-shadow(0 0 30px rgba(255, 87, 34, 0.8)); }
+                        0%, 100% { filter: drop-shadow(0 0 15px rgba(37, 99, 235, 0.5)); }
+                        50% { filter: drop-shadow(0 0 30px rgba(37, 99, 235, 0.8)); }
                     }
 
                     .entry-touch-indicator {
                         margin-top: 1.5rem;
-                        color: rgba(255, 87, 34, 0.7);
+                        color: rgba(37, 99, 235, 0.7);
                         animation: touchPulse 1.5s ease-in-out infinite;
                     }
 
@@ -306,14 +306,14 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
                     }
 
                     @keyframes textGlow {
-                        0%, 100% { text-shadow: 0 0 10px rgba(255, 87, 34, 0.3); }
-                        50% { text-shadow: 0 0 20px rgba(255, 87, 34, 0.6); }
+                        0%, 100% { text-shadow: 0 0 10px rgba(37, 99, 235, 0.3); }
+                        50% { text-shadow: 0 0 20px rgba(37, 99, 235, 0.6); }
                     }
 
                     .entry-dot {
                         width: 4px;
                         height: 4px;
-                        background: var(--neon-orange);
+                        background: var(--primary-blue);
                         border-radius: 50%;
                         animation: dotPulse 1s ease-in-out infinite;
                     }
@@ -350,8 +350,8 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
                         <text x="50" y="65" textAnchor="middle" fill="url(#logoGrad)" fontSize="45" fontWeight="900" fontFamily="'Inter', sans-serif">H</text>
                         <defs>
                             <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stopColor="#FF5722" />
-                                <stop offset="100%" stopColor="#00FFFF" />
+                                <stop offset="0%" stopColor="#2563eb" />
+                                <stop offset="100%" stopColor="#06b6d4" />
                             </linearGradient>
                         </defs>
                     </svg>

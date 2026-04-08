@@ -117,7 +117,7 @@ export default function ProjectImagePreview({
                 }}
             >
                 {/* Gradient glow effects */}
-                <div className="absolute -left-16 -top-16 h-32 w-32 rounded-full bg-[var(--neon-orange)] opacity-25 blur-3xl" />
+                <div className="absolute -left-16 -top-16 h-32 w-32 rounded-full bg-[var(--primary-blue)] opacity-25 blur-3xl" />
                 <div className="absolute -bottom-16 -right-16 h-32 w-32 rounded-full bg-[var(--electric-blue)] opacity-20 blur-3xl" />
 
                 {/* Header with macOS style window controls */}
@@ -175,14 +175,14 @@ export default function ProjectImagePreview({
                     </div>
 
                     {images.length > 4 && (
-                        <span className="text-xs text-[var(--neon-orange)]">
+                        <span className="text-xs text-[var(--primary-blue)]">
                             +{images.length - 4} more
                         </span>
                     )}
                 </div>
 
                 {/* Bottom glow line */}
-                <div className="absolute bottom-0 left-1/2 h-0.5 w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-[var(--neon-orange)]/60 to-transparent" />
+                <div className="absolute bottom-0 left-1/2 h-0.5 w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-[var(--primary-blue)]/60 to-transparent" />
             </div>
         </div>
     );

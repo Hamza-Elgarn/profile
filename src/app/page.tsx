@@ -4,14 +4,15 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { soundEffects } from '@/lib/soundEffects';
 
-// Dynamically import components to prevent SSR issues with Three.js
+// Dynamically import components
 const LoadingScreen = dynamic(() => import('@/components/LoadingScreen'), { ssr: false });
 const SmoothScroll = dynamic(() => import('@/components/SmoothScroll'), { ssr: false });
+const TopNavbar = dynamic(() => import('@/components/TopNavbar'), { ssr: false });
 const HeroSection = dynamic(() => import('@/components/HeroSection'), { ssr: false });
 const ProjectsSection = dynamic(() => import('@/components/ProjectsSection'), { ssr: false });
+const TechMarquee = dynamic(() => import('@/components/TechMarquee'), { ssr: false });
 const PersonalTerminal = dynamic(() => import('@/components/PersonalTerminal'), { ssr: false });
 const ContactSection = dynamic(() => import('@/components/ContactSection'), { ssr: false });
-const SideNavigation = dynamic(() => import('@/components/SideNavigation'), { ssr: false });
 const SoundToggle = dynamic(() => import('@/components/SoundToggle'), { ssr: false });
 
 export default function Home() {
@@ -42,14 +43,12 @@ export default function Home() {
     const sections = ['home', 'projects', 'about', 'contact'];
 
     const handleScroll = () => {
-      const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
 
       for (const sectionId of sections) {
         const section = document.getElementById(sectionId);
         if (section) {
           const rect = section.getBoundingClientRect();
-          // Check if section is roughly in viewport center
           if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
             if (lastSection !== sectionId) {
               lastSection = sectionId;
@@ -61,7 +60,6 @@ export default function Home() {
       }
     };
 
-    // Throttle scroll handler
     let ticking = false;
     const throttledScroll = () => {
       if (!ticking) {
@@ -82,12 +80,12 @@ export default function Home() {
       {/* Cinematic Loading Screen */}
       {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
 
-      {/* Main Content - Hidden during loading for performance */}
+      {/* Main Content */}
       <div style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
         <SmoothScroll>
           <main className="relative">
-            {/* Side Navigation */}
-            <SideNavigation />
+            {/* Top Navigation */}
+            <TopNavbar />
 
             {/* Sound Toggle Button */}
             <SoundToggle />
@@ -96,6 +94,10 @@ export default function Home() {
             <section id="home">
               <HeroSection />
             </section>
+            
+            {/* Tech Stack Marquee */}
+            <TechMarquee />
+
             <section id="projects">
               <ProjectsSection />
             </section>

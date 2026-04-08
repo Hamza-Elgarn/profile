@@ -81,13 +81,43 @@ const techStack = [
         ),
         color: '#61DAFB',
         bgColor: 'rgba(97, 218, 251, 0.15)'
+    },
+    {
+        name: 'Flutter',
+        icon: (
+            <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+                <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z" />
+            </svg>
+        ),
+        color: '#02569B',
+        bgColor: 'rgba(2, 86, 155, 0.15)'
+    },
+    {
+        name: 'Cybersecurity',
+        icon: (
+            <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+            </svg>
+        ),
+        color: '#00FF41',
+        bgColor: 'rgba(0, 255, 65, 0.12)'
+    },
+    {
+        name: 'AI Development',
+        icon: (
+            <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+                <path d="M21 10.5h-1.5V9h-2v1.5H16V9h-2v1.5h-1.5v2H14V14h2v-1.5h1.5V14h2v-1.5H21v-2zM8 9H2v2h6V9zm0 4H2v2h6v-2zm14.5-8h-19C2.12 5 1 6.12 1 7.5v9C1 17.88 2.12 19 3.5 19h19c1.38 0 2.5-1.12 2.5-2.5v-9C25 6.12 23.88 5 22.5 5zm0 11.5h-19v-9h19v9z" />
+            </svg>
+        ),
+        color: '#A855F7',
+        bgColor: 'rgba(168, 85, 247, 0.15)'
     }
 ];
 
 const experienceData = [
     { role: 'Creative Developer', company: 'Freelance', year: '2023 - Present' },
-    { role: 'IT Student', company: 'Collège de Paris', year: '2023 - Present' },
-    { role: 'Web Developer', company: 'Personal Projects', year: '2022' },
+    { role: 'IT Student', company: 'Collège de Paris', year: '2025 - Present (1st Year)' },
+    { role: 'Independent Full-Stack Developer', company: 'Personal Projects', year: '2022' },
     { role: 'UI/UX Enthusiast', company: 'Freelance', year: '2021' }
 ];
 
@@ -141,7 +171,7 @@ export default function PersonalTerminal() {
                     {/* Left Column (Profile Card) */}
                     <div 
                         ref={el => { bentoRefs.current[0] = el; }}
-                        className="w-full lg:w-[35%] bg-[#0f172a] border border-white/5 rounded-[2rem] p-6 lg:p-8 flex flex-col items-center shadow-2xl"
+                        className="w-full lg:w-[35%] bg-white/[0.03] border border-white/[0.08] rounded-[2rem] p-6 lg:p-8 flex flex-col items-center shadow-2xl backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)]"
                     >
                         {/* Profile Image */}
                         <div className="w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden mb-6 bg-gradient-to-b from-[#1e3a8a] to-[#0f172a]">
@@ -201,7 +231,7 @@ export default function PersonalTerminal() {
                         {/* Bio Card */}
                         <div 
                             ref={el => { bentoRefs.current[1] = el; }}
-                            className="w-full bg-[#0f172a] border border-white/5 rounded-[2rem] p-6 lg:p-8 shadow-2xl"
+                            className="w-full bg-white/[0.03] border border-white/[0.08] rounded-[2rem] p-6 lg:p-8 shadow-2xl backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)]"
                         >
                             <h3 className="text-2xl font-bold text-white mb-6">Hi! I'm Hamza Elgarn,</h3>
                             <p className="text-white/70 leading-relaxed max-w-3xl mb-6">
@@ -215,14 +245,14 @@ export default function PersonalTerminal() {
                         {/* Tech Stack Card */}
                         <div 
                             ref={el => { bentoRefs.current[2] = el; }}
-                            className="w-full bg-[#0f172a] border border-white/5 rounded-[2rem] p-5 sm:p-6 lg:p-8 shadow-2xl flex flex-row items-center justify-between gap-2 sm:gap-4 overflow-hidden"
+                            className="w-full bg-white/[0.03] border border-white/[0.08] rounded-[2rem] p-5 sm:p-6 lg:p-8 shadow-2xl backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)]"
                         >
-                            <h3 className="text-sm sm:text-lg lg:text-xl font-medium text-white/90 whitespace-nowrap">My Tech Stack:</h3>
-                            <div className="flex flex-row flex-nowrap items-center justify-end gap-1.5 sm:gap-4">
+                            <h3 className="text-sm sm:text-lg lg:text-xl font-medium text-white/90 mb-4">My Tech Stack:</h3>
+                            <div className="flex flex-row flex-wrap items-center gap-2 sm:gap-3">
                                 {techStack.map((tech) => (
                                     <div 
                                         key={tech.name}
-                                        className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 rounded-full border border-white/5 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg flex-shrink-0"
+                                        className="w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 rounded-full border border-white/5 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg flex-shrink-0"
                                         style={{ backgroundColor: tech.bgColor, color: tech.color }}
                                         title={tech.name}
                                     >
@@ -235,7 +265,7 @@ export default function PersonalTerminal() {
                         {/* Experience Card */}
                         <div 
                             ref={el => { bentoRefs.current[3] = el; }}
-                            className="w-full bg-[#0f172a] border border-white/5 rounded-[2rem] p-5 sm:p-6 lg:p-8 shadow-2xl flex-grow"
+                            className="w-full bg-white/[0.03] border border-white/[0.08] rounded-[2rem] p-5 sm:p-6 lg:p-8 shadow-2xl backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)] flex-grow"
                         >
                             <h3 className="text-lg lg:text-xl font-medium text-white/90 mb-6">Experience & Education</h3>
                             <div className="flex flex-col space-y-4">

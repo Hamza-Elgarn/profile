@@ -17,7 +17,7 @@ export const projects: Project[] = [
         title: 'HayaShoot',
         description: 'A comprehensive SaaS platform engineered to deliver real-time sports data via high-performance APIs.',
         fullDescription: 'A comprehensive SaaS platform engineered to deliver real-time sports data via high-performance APIs. The project automates the entire content pipeline, from live match updates to breaking news, enabling clients to deploy fully functional sports portals instantly. Featuring a sophisticated analytics dashboard for monitoring API traffic, data compression, and user engagement, HayaShoot bridges the gap between complex data infrastructure and seamless user experiences.',
-        techStack: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'API'],
+        techStack: ['JavaScript', 'PHP', 'HTML', 'CSS', 'MySQL', 'Node.js', 'Python'],
         category: 'SaaS Platform',
         liveUrl: 'https://hayachoout.space/home',
         images: [
@@ -26,7 +26,7 @@ export const projects: Project[] = [
             '/projects/hayachoout/Screenshot_2026-04-08_195430.png',
             '/projects/hayachoout/Screenshot_2026-04-08_195524.png',
             '/projects/hayachoout/Screenshot_2026-04-08_195538.png',
-            '/projects/hayachoout/Screenshot_2026-04-08_195700.png',
+            '/projects/hayachoout/Screenshot_2026-04-08_213030.png',
         ],
         features: [
             'Real-time sports data delivery',

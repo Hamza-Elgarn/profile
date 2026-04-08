@@ -9,8 +9,8 @@ import Spline from '@splinetool/react-spline';
 const stats = [
     { value: '1000+', label: 'Coding Hours', position: 'top-left' },
     { value: '10+', label: 'Projects Built', position: 'top-right' },
-    { value: '5+', label: 'Technologies', position: 'bottom-left' },
-    { value: '2+', label: 'Years Experience', position: 'bottom-right' },
+    { value: '10+', label: 'Technologies', position: 'bottom-left' },
+    { value: '2+', label: 'Years Freelancing', position: 'bottom-right' },
 ];
 
 export default function HeroSection() {
@@ -141,11 +141,10 @@ export default function HeroSection() {
                         Hi! I&apos;m Hamza Elgarn, building
                     </p>
                     <h1 className="hero-headline" style={{ opacity: 0 }}>
-                        Digital<br />Experiences.
+                        Secure & Intelligent<br />Digital Experiences.
                     </h1>
                     <p className="hero-description" style={{ opacity: 0 }}>
-                        From prototypes to production-ready systems,<br />
-                        I turn ideas into scalable, user-focused products.
+                        I combine clean code with advanced AI logic and security best practices to build products that scale.
                     </p>
                     <div className="hero-buttons pointer-events-auto" style={{ opacity: 0 }}>
                         <button
@@ -197,14 +196,16 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* Scroll indicator */}
-            <div
-                ref={scrollIndicatorRef}
-                className="hero-scroll-indicator relative z-10 pointer-events-none"
-                style={{ opacity: 0 }}
-            >
-                <span className="hero-scroll-text">Scroll to explore</span>
-                <div className="hero-scroll-line" />
+            {/* Scroll indicator - Hidden on Mobile */}
+            <div className="hidden lg:block">
+                <div
+                    ref={scrollIndicatorRef}
+                    className="hero-scroll-indicator relative z-10 pointer-events-none"
+                    style={{ opacity: 0 }}
+                >
+                    <span className="hero-scroll-text">Scroll to explore</span>
+                    <div className="hero-scroll-line" />
+                </div>
             </div>
         </section>
     );

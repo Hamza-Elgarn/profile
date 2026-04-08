@@ -21,12 +21,12 @@ export const projects: Project[] = [
         category: 'SaaS Platform',
         liveUrl: 'https://hayachoout.space/home',
         images: [
-            '/projects/hayachoout/Screenshot 2026-04-08 195347.png',
-            '/projects/hayachoout/Screenshot 2026-04-08 195413.png',
-            '/projects/hayachoout/Screenshot 2026-04-08 195430.png',
-            '/projects/hayachoout/Screenshot 2026-04-08 195524.png',
-            '/projects/hayachoout/Screenshot 2026-04-08 195538.png',
-            '/projects/hayachoout/Screenshot 2026-04-08 195700.png',
+            '/projects/hayachoout/Screenshot_2026-04-08_195347.png',
+            '/projects/hayachoout/Screenshot_2026-04-08_195413.png',
+            '/projects/hayachoout/Screenshot_2026-04-08_195430.png',
+            '/projects/hayachoout/Screenshot_2026-04-08_195524.png',
+            '/projects/hayachoout/Screenshot_2026-04-08_195538.png',
+            '/projects/hayachoout/Screenshot_2026-04-08_195700.png',
         ],
         features: [
             'Real-time sports data delivery',

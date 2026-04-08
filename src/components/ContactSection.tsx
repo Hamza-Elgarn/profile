@@ -99,13 +99,84 @@ export default function ContactSection() {
                         <span className="text-[var(--primary-blue-light)]">Touch</span>
                     </h2>
                     <p className="mx-auto max-w-xl text-white/50">
-                        Ready to collaborate on your next project? Send a transmission through the holographic interface below.
+                        Ready to collaborate on your next project? Send me a message below.
                     </p>
                 </div>
 
-                {/* Holographic Form */}
+                {/* Contact Form */}
                 <div ref={formRef} style={{ opacity: 0 }}>
-                    <HolographicForm />
+                    <div className="rounded-[2rem] border border-white/10 bg-[#0f172a]/80 p-8 md:p-12 backdrop-blur-xl shadow-2xl">
+                        <form
+                            action="https://formspree.io/f/placeholder"
+                            method="POST"
+                            className="space-y-6"
+                        >
+                            <div className="grid gap-6 md:grid-cols-2">
+                                <div>
+                                    <label htmlFor="contact-name" className="mb-2 block text-sm font-medium text-white/70">Name</label>
+                                    <input
+                                        type="text"
+                                        id="contact-name"
+                                        name="name"
+                                        required
+                                        className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-white placeholder-white/30 outline-none transition-all duration-300 focus:border-[var(--primary-blue)]/50 focus:bg-white/[0.08] focus:shadow-[0_0_20px_rgba(37,99,235,0.15)]"
+                                        placeholder="Your name"
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="contact-email" className="mb-2 block text-sm font-medium text-white/70">Email</label>
+                                    <input
+                                        type="email"
+                                        id="contact-email"
+                                        name="email"
+                                        required
+                                        className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-white placeholder-white/30 outline-none transition-all duration-300 focus:border-[var(--primary-blue)]/50 focus:bg-white/[0.08] focus:shadow-[0_0_20px_rgba(37,99,235,0.15)]"
+                                        placeholder="your@email.com"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label htmlFor="contact-subject" className="mb-2 block text-sm font-medium text-white/70">Subject</label>
+                                <input
+                                    type="text"
+                                    id="contact-subject"
+                                    name="subject"
+                                    required
+                                    className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-white placeholder-white/30 outline-none transition-all duration-300 focus:border-[var(--primary-blue)]/50 focus:bg-white/[0.08] focus:shadow-[0_0_20px_rgba(37,99,235,0.15)]"
+                                    placeholder="What's this about?"
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="contact-message" className="mb-2 block text-sm font-medium text-white/70">Message</label>
+                                <textarea
+                                    id="contact-message"
+                                    name="message"
+                                    rows={5}
+                                    required
+                                    className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-white placeholder-white/30 outline-none transition-all duration-300 focus:border-[var(--primary-blue)]/50 focus:bg-white/[0.08] focus:shadow-[0_0_20px_rgba(37,99,235,0.15)]"
+                                    placeholder="Tell me about your project..."
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                className="group w-full rounded-xl bg-[var(--primary-blue)] px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-[var(--primary-blue-light)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]"
+                            >
+                                <span className="flex items-center justify-center gap-2">
+                                    Send Message
+                                    <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                {/* Social Links */}
+                <div ref={linksRef} className="mt-12 flex items-center justify-center gap-6">
+                    <SocialLink href="https://github.com/Hamza-Elgarn" icon={<GitHubIcon />} label="GitHub" />
+                    <SocialLink href="https://www.linkedin.com/in/hamza-elgarn/" icon={<LinkedInIcon />} label="LinkedIn" />
+                    <SocialLink href="mailto:hamzaelgarn@gmail.com" icon={<EmailIcon />} label="Email" />
                 </div>
             </div>
         </section>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -12,6 +12,38 @@ export default function ContactSection() {
     const titleRef = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLDivElement>(null);
     const linksRef = useRef<HTMLDivElement>(null);
+
+    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus('submitting');
+        
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                setStatus('success');
+                form.reset();
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+                setTimeout(() => setStatus('idle'), 5000);
+            }
+        } catch (error) {
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 5000);
+        }
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -107,8 +139,9 @@ export default function ContactSection() {
                 <div ref={formRef} style={{ opacity: 0 }}>
                     <div className="rounded-[2rem] border border-white/10 bg-[#0f172a]/80 p-8 md:p-12 backdrop-blur-xl shadow-2xl">
                         <form
-                            action="https://formspree.io/f/placeholder"
+                            action="https://formspree.io/f/xykbaylw"
                             method="POST"
+                            onSubmit={handleSubmit}
                             className="space-y-6"
                         >
                             <div className="grid gap-6 md:grid-cols-2">
@@ -159,13 +192,25 @@ export default function ContactSection() {
                             </div>
                             <button
                                 type="submit"
-                                className="group w-full rounded-xl bg-[var(--primary-blue)] px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-[var(--primary-blue-light)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]"
+                                disabled={status === 'submitting'}
+                                className={`group w-full rounded-xl px-8 py-4 text-base font-semibold text-white transition-all duration-300 ${
+                                    status === 'success' ? 'bg-green-500 hover:bg-green-400' :
+                                    status === 'error' ? 'bg-red-500 hover:bg-red-400' :
+                                    'bg-[var(--primary-blue)] hover:bg-[var(--primary-blue-light)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]'
+                                } ${status === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
                             >
                                 <span className="flex items-center justify-center gap-2">
-                                    Send Message
-                                    <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
+                                    {status === 'idle' && (
+                                        <>
+                                            Send Message
+                                            <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                            </svg>
+                                        </>
+                                    )}
+                                    {status === 'submitting' && 'Sending...'}
+                                    {status === 'success' && 'Message Sent Successfully! ✅'}
+                                    {status === 'error' && 'Failed to Send. Try Again ❌'}
                                 </span>
                             </button>
                         </form>

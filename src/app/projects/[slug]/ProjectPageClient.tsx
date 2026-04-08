@@ -125,6 +125,23 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                             </span>
                         ))}
                     </div>
+
+                    {/* Live URL Button */}
+                    {project.liveUrl && (
+                        <div className="mt-8">
+                            <a
+                                href={project.liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group inline-flex items-center gap-2 rounded-full bg-[var(--primary-blue)] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[var(--primary-blue-light)] hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                            >
+                                Visit Live Site
+                                <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                    )}
                 </div>
 
                 {/* Content */}

@@ -18,8 +18,16 @@ const SoundToggle = dynamic(() => import('@/components/SoundToggle'), { ssr: fal
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    // Only show loading screen once per session
+    if (sessionStorage.getItem('hasLoaded')) {
+      setIsLoading(false);
+    }
+  }, []);
+
   const handleLoadComplete = () => {
     setIsLoading(false);
+    sessionStorage.setItem('hasLoaded', 'true');
   };
 
   // Add global click sound for links

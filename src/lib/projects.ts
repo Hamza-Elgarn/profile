@@ -8,9 +8,34 @@ export interface Project {
     category: string;
     images: string[];
     features: string[];
+    liveUrl?: string;
 }
 
 export const projects: Project[] = [
+    {
+        slug: 'hayashoot',
+        title: 'HayaShoot',
+        description: 'A comprehensive SaaS platform engineered to deliver real-time sports data via high-performance APIs.',
+        fullDescription: 'A comprehensive SaaS platform engineered to deliver real-time sports data via high-performance APIs. The project automates the entire content pipeline, from live match updates to breaking news, enabling clients to deploy fully functional sports portals instantly. Featuring a sophisticated analytics dashboard for monitoring API traffic, data compression, and user engagement, HayaShoot bridges the gap between complex data infrastructure and seamless user experiences.',
+        techStack: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'API'],
+        category: 'SaaS Platform',
+        liveUrl: 'https://hayachoout.space/home',
+        images: [
+            '/projects/hayachoout/Screenshot 2026-04-08 195347.png',
+            '/projects/hayachoout/Screenshot 2026-04-08 195413.png',
+            '/projects/hayachoout/Screenshot 2026-04-08 195430.png',
+            '/projects/hayachoout/Screenshot 2026-04-08 195524.png',
+            '/projects/hayachoout/Screenshot 2026-04-08 195538.png',
+            '/projects/hayachoout/Screenshot 2026-04-08 195700.png',
+        ],
+        features: [
+            'Real-time sports data delivery',
+            'Automated content pipeline',
+            'Live match updates & breaking news',
+            'Sophisticated analytics dashboard',
+            'API traffic monitoring & data compression'
+        ]
+    },
     {
         slug: 'tijara-pos',
         title: 'Tijara-POS',
